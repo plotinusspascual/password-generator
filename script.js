@@ -25,6 +25,10 @@ var pwdCharUpperArr = pwdCharUpper.split('');
 var pwdCharSpecialArr = pwdCharSpecial.split('');
 var pwdCharNumArr = pwdNumbers.split('');
 
+var lowCapOfPwd;
+
+var newPassword = [];
+
 //WHEN prompted for the length of the password                  
 //THEN I choose a length of at least 8 characters and no more than 128 characters 
 function generatePassword(){
@@ -38,6 +42,16 @@ function generatePassword(){
   //WHEN asked for character types to include in the password
   //THEN I confirm whether or not to include lowercase, uppercase, numeric, 
   // and/or special characters
-  var caseOfPwd
+  var lowCapOfPwd = (confirm("would you like lowercase letters?"));
+    if(lowCapOfPwd == true){
+      newPassword = newPassword.concat(lowCapOfPwd);
+    }
+
+  var UppCapOfPwd = (confirm("would you like lowercase letters?"));
+    if(UppCapOfPwd == true){
+      newPassword = newPassword.concat(UppCapOfPwd);
+    }
+
+    return newPassword;
 }
   
