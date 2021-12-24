@@ -39,25 +39,35 @@ function generatePassword(){
   //WHEN asked for character types to include in the password
   //THEN I confirm whether or not to include lowercase, uppercase, numeric, 
   // and/or special characters
-  var lowCapOfPwd = (confirm("would you like lowercase letters?"));
-    if(lowCapOfPwd == true){
-      newPassword = newPassword.concat(pwdCharLowerArr);
+    var lowCapOfPwd = (confirm("would you like lowercase letters?"));
+      if(lowCapOfPwd == true){
+        newPassword = newPassword.concat(pwdCharLowerArr);
+      }
+
+    var UppCapOfPwd = (confirm("would you like uppercase letters?"));
+      if(UppCapOfPwd == true){
+        newPassword = newPassword.concat(pwdCharUpperArr);
+      }
+
+    var numOfPwd = (confirm("would you like numbers?"));
+    if(numOfPwd == true){
+      newPassword = newPassword.concat(pwdCharNumArr);
       console.log(newPassword);
     }
-
-  var UppCapOfPwd = (confirm("would you like uppercase letters?"));
-    if(UppCapOfPwd == true){
-      newPassword = newPassword.concat(pwdCharUpperArr);
+    
+    var numOfPwd = (confirm("would you like special characters?"));
+    if(numOfPwd == true){
+      newPassword = newPassword.concat(pwdCharSpecialArr);
       console.log(newPassword);
     }
   
-  var genPassword = [];  
+    var genPassword = [];  
 
-  for(var i=0; i<=lengthOfPwd; i++){
-    genPassword = genPassword + newPassword[Math.floor((Math.random() * newPassword.length))];
-    newPassword.push(genPassword)
-    console.log(genPassword);
-  }
+    for(var i=0; i<=lengthOfPwd; i++){
+      genPassword = genPassword + newPassword[Math.floor((Math.random() * newPassword.length))];
+      newPassword.push(genPassword)
+      console.log(genPassword);
+    }
   return genPassword;
   }
   
