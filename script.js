@@ -18,9 +18,9 @@ var pwdCharLower = "0123456789abcdefghijklmnopqrstuvwxyz";
 var pwdCharUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var pwdCharSpecial = "!@#$%^&*()";
 
-var pwdCharArray = pwdCharLower.split('');
-var pwdCharArray = pwdCharUpper.split('');
-var pwdCharArray = pwdCharSpecial.split('');
+var pwdCharLowerArr = pwdCharLower.split('');
+var pwdCharUpperArr = pwdCharUpper.split('');
+var pwdCharSpecialArr = pwdCharSpecial.split('');
 
 var generatePwd = {
   
