@@ -23,7 +23,8 @@ var pwdCharLowerArr = pwdCharLower.split('');
 var pwdCharUpperArr = pwdCharUpper.split('');
 var pwdCharSpecialArr = pwdCharSpecial.split('');
 
-// Prompt for length of characters
+//WHEN prompted for the length of the password                  
+//THEN I choose a length of at least 8 characters and no more than 128 characters 
 function generatePassword(){
   var lengthOfPwd = (prompt("How many characters do you want your password to be?"));
   
