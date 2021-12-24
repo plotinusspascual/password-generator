@@ -14,24 +14,21 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 // Available Characters to use
-var pwdCharLower = "0123456789abcdefghijklmnopqrstuvwxyz";
+var pwdCharLower = "abcdefghijklmnopqrstuvwxyz";
 var pwdCharUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var pwdCharSpecial = "!@#$%^&*()";
 var pwdNumbers = "0123456789";
 
 // Seperating string to make an array 
-var pwdCharLowerArr = pwdCharLower.split('');
-var pwdCharUpperArr = pwdCharUpper.split('');
-var pwdCharSpecialArr = pwdCharSpecial.split('');
-var pwdCharNumArr = pwdNumbers.split('');
-
-var lowCapOfPwd;
-
-var newPassword = [];
+const pwdCharLowerArr = pwdCharLower.split('');
+const pwdCharUpperArr = pwdCharUpper.split('');
+const pwdCharSpecialArr = pwdCharSpecial.split('');
+const pwdCharNumArr = pwdNumbers.split('');
 
 //WHEN prompted for the length of the password                  
 //THEN I choose a length of at least 8 characters and no more than 128 characters 
 function generatePassword(){
+  var newPassword = [];
   var lengthOfPwd = (prompt("How many characters do you want your password to be?"));
   
   while(lengthOfPwd < 8 && lengthOfPwd < 128){
@@ -44,14 +41,23 @@ function generatePassword(){
   // and/or special characters
   var lowCapOfPwd = (confirm("would you like lowercase letters?"));
     if(lowCapOfPwd == true){
-      newPassword = newPassword.concat(lowCapOfPwd);
+      newPassword = newPassword.concat(pwdCharLowerArr);
+      console.log(newPassword);
     }
 
-  var UppCapOfPwd = (confirm("would you like lowercase letters?"));
+  var UppCapOfPwd = (confirm("would you like uppercase letters?"));
     if(UppCapOfPwd == true){
-      newPassword = newPassword.concat(UppCapOfPwd);
+      newPassword = newPassword.concat(pwdCharUpperArr);
+      console.log(newPassword);
     }
+  
+  var genPassword = [];  
 
-    return newPassword;
-}
+  for(var i=0; i<=lengthOfPwd; i++){
+    genPassword = genPassword + newPassword[Math.floor((Math.random() * newPassword.length))];
+    newPassword.push(genPassword)
+    console.log(genPassword);
+  }
+  return genPassword;
+  }
   
