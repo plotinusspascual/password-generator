@@ -25,20 +25,34 @@ const pwdCharUpperArr = pwdCharUpper.split('');
 const pwdCharSpecialArr = pwdCharSpecial.split('');
 const pwdCharNumArr = pwdNumbers.split('');
 
+
+function getLengthOfPassword(){
+  var lengthOfPwd = (prompt("How many characters do you want your password to be?"));
+  
+  //while(lengthOfPwd < 8 && lengthOfPwd > 128){
+  //  alert("Password must be at least 8 characters long and at most 128 characters long");
+  //  break;
+ // } 
+  return lengthOfPwd;
+}
+
 //WHEN prompted for the length of the password                  
 //THEN I choose a length of at least 8 characters and no more than 128 characters 
 function generatePassword(){
   var newPassword = [];
-  var lengthOfPwd = (prompt("How many characters do you want your password to be?"));
+  //var lengthOfPwd = (prompt("How many characters do you want your password to be?"));
   
-  while(lengthOfPwd < 8 && lengthOfPwd < 128){
-    alert("Password must be at least 8 characters long and at most 128 characters long");
-    break;
-  }
+  //while(lengthOfPwd < 8 && lengthOfPwd < 128){
+  //  alert("Password must be at least 8 characters long and at most 128 characters long");
+  //  break;
+  //}
+  var lengthOfPwd = getLengthOfPassword();
+  console.log(lengthOfPwd);
   //----Next prompts asked----
   //WHEN asked for character types to include in the password
   //THEN I confirm whether or not to include lowercase, uppercase, numeric, 
   // and/or special characters
+  if(lengthOfPwd >= 8 && lengthOfPwd <= 128){
     var lowCapOfPwd = (confirm("would you like lowercase letters?"));
       if(lowCapOfPwd == true){
         newPassword = newPassword.concat(pwdCharLowerArr);
@@ -60,14 +74,15 @@ function generatePassword(){
       newPassword = newPassword.concat(pwdCharSpecialArr);
       console.log(newPassword);
     }
-  
+  } else {
+    alert("Password must be at least 8 characters long and at most 128 characters long");
+  }
     var genPassword = [];  
 
-    for(var i=0; i<=lengthOfPwd; i++){
+    for(var i=0; i<lengthOfPwd; i++){
       genPassword = genPassword + newPassword[Math.floor((Math.random() * newPassword.length))];
       newPassword.push(genPassword)
       console.log(genPassword);
     }
   return genPassword;
   }
-  
