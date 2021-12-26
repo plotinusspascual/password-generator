@@ -28,11 +28,6 @@ const pwdCharNumArr = pwdNumbers.split('');
 
 function getLengthOfPassword(){
   var lengthOfPwd = (prompt("How many characters do you want your password to be?"));
-  
-  //while(lengthOfPwd < 8 && lengthOfPwd > 128){
-  //  alert("Password must be at least 8 characters long and at most 128 characters long");
-  //  break;
- // } 
   return lengthOfPwd;
 }
 
@@ -40,14 +35,10 @@ function getLengthOfPassword(){
 //THEN I choose a length of at least 8 characters and no more than 128 characters 
 function generatePassword(){
   var newPassword = [];
-  //var lengthOfPwd = (prompt("How many characters do you want your password to be?"));
-  
-  //while(lengthOfPwd < 8 && lengthOfPwd < 128){
-  //  alert("Password must be at least 8 characters long and at most 128 characters long");
-  //  break;
-  //}
+
   var lengthOfPwd = getLengthOfPassword();
   console.log(lengthOfPwd);
+  
   //----Next prompts asked----
   //WHEN asked for character types to include in the password
   //THEN I confirm whether or not to include lowercase, uppercase, numeric, 
@@ -74,15 +65,17 @@ function generatePassword(){
       newPassword = newPassword.concat(pwdCharSpecialArr);
     } console.log(spCharOfPwd);
 
+    // If no criteria above are chosen alert this
     if(lowCapOfPwd === false && UppCapOfPwd === false && numOfPwd === false && spCharOfPwd === false){
       alert("You must select atleast one criteria for the password");
     }
-
+  // If out of bound with length of password alert this  
   } else {
     alert("Password must be at least 8 characters long and at most 128 characters long");
   }
-    var genPassword = [];  
 
+    var genPassword = [];  
+    // Itirate through array of given criteria's length and randomizes it 
     for(var i=0; i<lengthOfPwd; i++){
       genPassword = genPassword + newPassword[Math.floor((Math.random() * newPassword.length))];
       newPassword.push(genPassword)
