@@ -45,25 +45,29 @@ function generatePassword(){
   // and/or special characters
   if(lengthOfPwd >= 8 && lengthOfPwd <= 128){
 
-    var lowCapOfPwd = (confirm("would you like lowercase letters?"));
+    var lowCapOfPwd = (confirm("Would you like lowercase letters?"));
       if(lowCapOfPwd == true){
         newPassword = newPassword.concat(pwdCharLowerArr);
-      } console.log(lowCapOfPwd);
+        alert("Your password will have lowercase letters");
+      } 
 
-    var UppCapOfPwd = (confirm("would you like uppercase letters?"));
+    var UppCapOfPwd = (confirm("Would you like uppercase letters?"));
       if(UppCapOfPwd == true){
         newPassword = newPassword.concat(pwdCharUpperArr);
-      } console.log(UppCapOfPwd);
+        alert("Your password will have uppercase letters");
+      } 
 
-    var numOfPwd = (confirm("would you like numbers?"));
+    var numOfPwd = (confirm("Would you like numbers?"));
     if(numOfPwd == true){
       newPassword = newPassword.concat(pwdCharNumArr);
-    } console.log(numOfPwd);
+      alert("Your password will have numbers");
+    } 
     
-    var spCharOfPwd = (confirm("would you like special characters?"));
+    var spCharOfPwd = (confirm("Would you like special characters?"));
     if(spCharOfPwd == true){
       newPassword = newPassword.concat(pwdCharSpecialArr);
-    } console.log(spCharOfPwd);
+      alert("Your password will have special characters");
+    } 
 
     // If no criteria above are chosen alert this
     if(lowCapOfPwd === false && UppCapOfPwd === false && numOfPwd === false && spCharOfPwd === false){
