@@ -53,27 +53,31 @@ function generatePassword(){
   //THEN I confirm whether or not to include lowercase, uppercase, numeric, 
   // and/or special characters
   if(lengthOfPwd >= 8 && lengthOfPwd <= 128){
+
     var lowCapOfPwd = (confirm("would you like lowercase letters?"));
       if(lowCapOfPwd == true){
         newPassword = newPassword.concat(pwdCharLowerArr);
-      }
+      } console.log(lowCapOfPwd);
 
     var UppCapOfPwd = (confirm("would you like uppercase letters?"));
       if(UppCapOfPwd == true){
         newPassword = newPassword.concat(pwdCharUpperArr);
-      }
+      } console.log(UppCapOfPwd);
 
     var numOfPwd = (confirm("would you like numbers?"));
     if(numOfPwd == true){
       newPassword = newPassword.concat(pwdCharNumArr);
-      console.log(newPassword);
-    }
+    } console.log(numOfPwd);
     
-    var numOfPwd = (confirm("would you like special characters?"));
-    if(numOfPwd == true){
+    var spCharOfPwd = (confirm("would you like special characters?"));
+    if(spCharOfPwd == true){
       newPassword = newPassword.concat(pwdCharSpecialArr);
-      console.log(newPassword);
+    } console.log(spCharOfPwd);
+
+    if(lowCapOfPwd === false && UppCapOfPwd === false && numOfPwd === false && spCharOfPwd === false){
+      alert("You must select atleast one criteria for the password");
     }
+
   } else {
     alert("Password must be at least 8 characters long and at most 128 characters long");
   }
